@@ -5,8 +5,7 @@ def list_all_itens():
     return itens
 
 def search_itens(item):
-    # itens = Item.objects.filter(descricao__contains=item).order_by('descricao')
-    itens = Item.objects.all()
+    itens = Item.objects.filter(descricao__contains=item).order_by('descricao')
     return itens
 
 def get_item(item):
