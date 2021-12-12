@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block conteudo %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Sub Inventário</th>
+      <th>Endereço</th>
+      <th>Estoque</th>
+      <th>UDM</th>
+      <th>Custo Unitário</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for iten in itens %}
+    <tr>
+      <td>{{iten.descricao}}</td>
+      <td>{{iten.subInventario}}</td>
+      <td>{{iten.endereco}}</td>
+      <td>{{iten.estoque}}</td>
+      <td>{{iten.udm}}</td>
+      <td>{{iten.custoUnitario}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock conteudo %}
