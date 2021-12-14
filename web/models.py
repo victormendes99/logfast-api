@@ -6,6 +6,6 @@ class Item(models.Model):
     subInventario = models.CharField(max_length=10, null=False, blank=False)
     endereco = models.CharField(max_length=60, null=False, blank=True)
     estoque = models.DecimalField(max_digits=6, decimal_places=2)
-    udm = models.CharField(max_length=2, null=False, blank=False)
+    udm = models.CharField(max_length=3, null=False, blank=False)
     custoUnitario = models.DecimalField(max_digits=6, decimal_places=2)
 
