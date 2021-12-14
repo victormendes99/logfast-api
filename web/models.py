@@ -2,7 +2,7 @@ from django.db import models
 
 class Item(models.Model):
     id = models.IntegerField(null=False, blank=False, primary_key=True)
-    descricao = models.CharField(max_length=60, null=False, blank=False)
+    descricao = models.CharField(max_length=150, null=False, blank=False)
     subInventario = models.CharField(max_length=10, null=False, blank=False)
     endereco = models.CharField(max_length=60, null=False, blank=True)
     estoque = models.IntegerField(null=False, blank=False)
