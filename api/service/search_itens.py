@@ -6,7 +6,7 @@ def list_all_itens():
     return itens
 
 def search_itens(item, preventiva):
-    if preventiva:
+    if preventiva == "true":
         q1 = Q(idSubInventario__startswith='P')
         q2 = Q(descricao__icontains=item)
         itens = Item.objects.filter(q1 & q2)
