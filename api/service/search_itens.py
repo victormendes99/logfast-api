@@ -1,4 +1,5 @@
 from web.models import Item
+from django.db.models import Q
 
 def list_all_itens():
     itens = Item.objects.all()
@@ -6,9 +7,13 @@ def list_all_itens():
 
 def search_itens(item, preventiva):
     if preventiva:
-        itens = Item.objects.filter(idSubInventario__startswith='P', descricao__icontains=item).order_by('descricao')
+        q1 = Q(idSubInventario__startswith='P')
+        q2 = Q(descricao__icontains=item)
+        itens = Item.objects.filter(q1 & q2)
     else:
-        itens = Item.objects.filter(idSubInventario__startswith='M', descricao__icontains=item).order_by('descricao')    
+        q1 = Q(idSubInventario__startswith='M')
+        q2 = Q(descricao__icontains=item)
+        itens = Item.objects.filter(q1 & q2)
     return itens
 
 def get_item(item):
