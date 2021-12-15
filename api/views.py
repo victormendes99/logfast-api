@@ -13,7 +13,8 @@ class AllItensList(APIView):
 class SearchItensList(APIView):
     def get(self, request, format=None):
         item = self.request.query_params.get('item', None)
-        itens = search_itens(item)
+        preventiva = self.request.query_params.get('preventiva', None)
+        itens = search_itens(item, preventiva)
         serializer = itens_serializer.ItemSerializer(itens, many=True, context = {"request": request})
         return Response(serializer.data)
 
